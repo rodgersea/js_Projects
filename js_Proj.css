@@ -1,0 +1,46 @@
+/* first css sheet */
+. {
+    font-family: Arial, Helvetica, sans-serif;
+}
+#title {
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    background-color: rgb(149, 217, 195);
+    width: 500px;
+    height: 100px;
+    border-width: 2px;
+    border-top: 3px solid rgb(3, 134, 80);
+    border-bottom: 10px solid rgb(256, 256, 256);
+}
+
+h3, h5 {
+    margin-left: 15px;
+}
+
+#links {
+    background-color: rgb(230, 242, 253);
+    border-top: 3px solid rgb(85, 127, 190);
+    width: 470px;
+    margin-left: 15px;
+    padding-left: 15px;
+}
+
+a {
+    padding: 15px, 30px;
+    text-decoration: none;
+    border: 2px solid darkgrey;
+    padding: 3px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+a:link, a:visited {
+    background-color: rgb(230, 242, 253)
+
+    ;
+    color: red;
+}
+
+a:hover {
+    color: white;
+    background-color: darkgrey;
+}

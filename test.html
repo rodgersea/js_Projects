@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Input</title>
+</head>
+<body>
+<button id="name">Name</button>
+<button id="city">City</button>
+<p>
+Your Name is <span id="outputName">____</span>. The city in which you live is <span id="outputCity">____</span>.
+</p>
+<script>
+document.getElementById("name").onclick = function(){
+	var name = prompt("Enter your name");
+  document.getElementById("outputName").innerText = name;
+}
+
+document.getElementById("city").onclick = function(){
+	var city = prompt("Enter your city");
+  document.getElementById("outputCity").innerText = city;
+}
+</script>
+</body>
+</html>
