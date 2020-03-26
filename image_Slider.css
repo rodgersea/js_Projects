@@ -1,0 +1,54 @@
+#father {
+    height: 300px;
+    width: 450px;
+    overflow: hidden;
+    border: 3px solid #4980A8;
+    display: block;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+h3 {
+    text-align: center;
+}
+
+#img_Disp {
+    height: 300px;
+    width: 450px;
+    object-fit: fill;
+}
+
+.btn {
+    width: 50px;
+    height: 50px;
+    background-color: #4980A8;
+    border: 2px solid #4980A8;
+    transition: 0.3s;
+    display: inline-block;
+}
+
+#btn_Left {
+    position: absolute;
+    bottom: 45%;
+    left: -2px;
+}
+
+#btn_Right {
+    position: absolute;
+    bottom: 45%;
+    right: -2px;
+}
+
+.btn:hover {
+    background-color: white;
+}
+
+.btn:hover > .fa { color: #4980A8}
+
+.fa {
+    color: white;
+    font-size: 20px;
+    margin-top: 5px;
+    transition: 0.3s;
+}

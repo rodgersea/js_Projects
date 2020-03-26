@@ -1,7 +1,15 @@
 /* first css sheet */
-. {
+* {
     font-family: Arial, Helvetica, sans-serif;
 }
+
+.container {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    margin: 10px;
+    grid-gap: 10px;
+}
+
 #title {
     font-family: Arial, Helvetica, sans-serif;
     color: white;
@@ -17,30 +25,69 @@ h3, h5 {
     margin-left: 15px;
 }
 
-#links {
+.links {
     background-color: rgb(230, 242, 253);
     border-top: 3px solid rgb(85, 127, 190);
-    width: 470px;
-    margin-left: 15px;
     padding-left: 15px;
+    margin-right: 10px;
+}
+
+#java-style {
+    
+    margin: 0;
+    margin-top: 20px;
+    padding: 0;
+    padding-left: 15px;
+    transform: translate(-15px, 0);
+    border-top: 3px solid rgb(85, 127, 190);
+    background-color: #EE4266;
+}
+
+#css-page {
+    height: auto;
+    background-color: #A1C5CF;
 }
 
 a {
-    padding: 15px, 30px;
     text-decoration: none;
     border: 2px solid darkgrey;
     padding: 3px;
     font-family: Arial, Helvetica, sans-serif;
 }
 
-a:link, a:visited {
-    background-color: rgb(230, 242, 253)
-
-    ;
-    color: red;
+.a1 {
+    text-decoration: none;
+    border: 2px solid #333333;
+    padding: 3px;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-a:hover {
+a:link, a:visited {
+    background-color: rgb(230, 242, 253);
+    color: black;
+}
+
+.a1:link, .a1:visited {
+    border: 2px solid #333333;
+    background-color: #A1C5CF;
+    color: white;
+}
+
+.a2:link, .a2:visited {
+    border: 2px solid #333333;
+    background-color: #EE4266;
+    color: white;
+}
+
+a:hover,
+.a1:hover,
+.a2:hover {
     color: white;
     background-color: darkgrey;
+}
+
+@media only screen and (max-width: 763px) {
+    .container {
+        grid-template-columns: 100%;
+    }
 }

@@ -1,0 +1,101 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+html {
+    background-image: url(bg.jpg);
+    background-size: cover;
+}
+
+/* styling the header: client testimonials */
+#header {
+    margin-top: 5%;
+}
+
+h3 {
+    color: orange;
+    font-size: 25px;
+    text-align: center;
+}
+
+h5 {
+    color: white;
+    font-size: 50px;
+    margin-top: 0;
+    text-align: center;
+}
+
+.cont {    
+    position: relative;
+    margin-left: 50%;
+    z-index: 1;
+}
+
+img {
+    width: 200px;
+    height: auto;
+    border-radius: 15px;
+    transform: rotate(90deg) translate(-20px, 60%);
+}
+
+#moans {
+    color: white;
+    text-align: center;
+    height: 40px;
+    transform: translate(-45%, 50px);
+}
+
+#testy {
+    border: 2px solid orange;
+    width: 80%;
+    height: 300px;
+    margin-left: 10%;
+    transform: translate(0, -40%);
+    z-index: -1;
+}
+
+button {
+    display: flex;
+    height: 40px;
+    width: 100px;
+    font-size: 20px;
+    background-color: transparent;
+    color: white;
+    font-size: 25px;
+    border: none;
+    border: 1px solid transparent;
+}
+
+button:hover {
+    border: 1px solid grey;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+#left {
+    position: absolute;
+    top: 45%;
+    z-index: 3;   
+    width: 70px; 
+}
+
+#right {
+    position: absolute;  
+    top: 45%;
+    right: 0;
+    z-index: 3;
+}
+
+@media only screen and (max-width: 808px) {
+    h3, h5 {
+        margin: 0;
+        padding: 0;
+        z-index: 10;
+    }
+    img {
+        transform: translate(-90px, 40px) rotate(90deg);
+    }
+    button {
+        transform: translate(0, 125px);
+    }
+
+}

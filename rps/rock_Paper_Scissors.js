@@ -17,23 +17,29 @@ alert("play computer best two out of three");
 
 for (var i=0; i < 3; i++) {
     var choice = prompt("enter rock[0], paper[1], or scissors[2] (case sensitive)");
-
-if ((choice == 0 && comp[i] == 2) || (choice == 1 && comp[i] == 0) || (choice == 2 && comp[i] == 1)) {
+if (input === null) {
+    return;
+} else if ((choice == 0 && comp[i] == 2) || (choice == 1 && comp[i] == 0) || (choice == 2 && comp[i] == 1)) {
     alert("good job");
     p_Score ++;
     document.getElementById("player-score").innerHTML = p_Score;
     document.getElementById("computer-score").innerHTML = c_Score;
-} else if ((choice == 0 && comp[i] == 1) || (choice == 1 && comp[i] == 2) || (choice == 3 && comp[i] == 0)){
-    alert("nope");
-    c_Score ++;
+} else if (choice == comp[i]){
+    alert("tie, play again")
+    i --;
     document.getElementById("player-score").innerHTML = p_Score;
     document.getElementById("computer-score").innerHTML = c_Score;
 } else {
-    alert("tie, play again")
-    i --;
+    c_Score ++;
+    alert("nope");
 
     document.getElementById("player-score").innerHTML = p_Score;
     document.getElementById("computer-score").innerHTML = c_Score;
 }
 }
 }
+
+
+
+
+

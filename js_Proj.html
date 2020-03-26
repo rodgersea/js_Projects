@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="UTF-8">
+	<title>javascript projects</title>
+	<!-- Linking CSS -->
+   <link rel="stylesheet" type="text/css" href="js_Proj.css">
+   <div id="title">
+      <h3>this is my collection of coding projects</h3>
+      <h5>good times</h5>
+   </div>
+</head>
+
+<body>
+   <div class="container">
+      <div class="links">
+         <h3>these are the javascript projects</h3>
+         <a href="change_Background_Color.html">change background color rgb format</a>
+         <br><br>
+         <a href = "change_Bgcl_Hex.html">change color hex format</a>
+         <br><br>
+         <a href = "pass_Quote.html">display user input to screen</a>
+         <br><br>
+         <a href = "counter.html">buttons increment/decrement value on screen</a>
+         <br><br>
+         <a href = "image_Slider.html">loops through an array of images</a>
+         <br><br>
+         <a href = "password/index.html">generate random password</a>
+         <br><br>
+         <a href = "OS_Lat_Lon/OS_Lat_Lon.html">display user OS and lat/lon</a>
+         <br><br> 
+         <a href = "tip_Calc/tip_Calc.html">tool for calculating tips</a>
+         <br><br>   
+      </div>
+      <div class="links" id="css-page">
+         <div id="tiddies">
+            <h3>these are the css projects</h3>
+            <a class="a1" href = "table_Excercise.html">an excercise with tables</a>
+            <br><br>
+            <a class="a1" href = "portfolio/index.html">mock portfolio</a>
+            <br><br>
+            <a class="a1" href = "tribute_To_Jasper/index.html">a vulgar tribute to my friend's cat</a>
+            <br><br>
+         </div> 
+         <div id="java-style">
+            <h3>these are the javascript styling projects</h3>
+            <a class="a2" href = "table_Excercise.html">an excercise with tables</a>
+            <br><br>
+            <a class="a2" href = "portfolio/index.html">mock portfolio</a>
+            <br><br>
+            <a class="a2" href = "tribute_To_Jasper/index.html">a vulgar tribute to my friend's cat</a>
+            <br><br>
+         </div>       
+      </div>
+   </div>
+   <script>
+      var hite1 = document.getElementById("tiddies");
+      var height1 = hite1.offsetHeight;
+      height1 = height1 + 20;
+      height1 = height1 + "px";
+      console.log(typeof height1);
+      console.log(height1);
+      document.getElementById("css-page").style.height = height1;
+   </script>
+</body>
+</html>

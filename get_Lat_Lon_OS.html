@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p class="system">Your operating system is: 
+        <span id="OS"></span>
+    </p>
+    <p class = lat-lon>Your latitude is: 
+        <span id="lat"></span>
+    </p>
+    <p class = lat-lon>Your latitude is: 
+        <span id="lat"></span>
+    </p>
+    <script>
+        var OSName="Unknown OS";
+        if (navigator.appVersion.indexOf("Win")!=-1) {
+            OSName="Windows";
+        } else if (navigator.appVersion.indexOf("Mac")!=-1) {
+            OSName="MacOS";
+        } else if (navigator.appVersion.indexOf("X11")!=-1) {
+            OSName="UNIX";
+        } else if (navigator.appVersion.indexOf("Linux")!=-1) {
+            OSName="Linux";
+        }
+        console.log(OSName);
+
+
+      
+    var x = document.getElementById("demo");
+
+
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else { 
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+
+function showPosition(position) {
+  console.log(position.coords.latitude); 
+  console.log(position.coords.longitude);
+}
+if (position.coords.latitude > 95) {
+    alert("you're east coast");
+} else {
+    alert("you're west coast");
+}
+
+
+        
+        
+    </script>
+</body>
+</html>
