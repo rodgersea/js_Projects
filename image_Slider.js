@@ -1,4 +1,3 @@
-
 const imgAr = [
     "spicy_Nooder/181028_010.jpg",
     "spicy_Nooder/181028_011.jpg",
@@ -8,7 +7,6 @@ const imgAr = [
 ];
 
 let counter = 0;
-
 function right() {
     if (counter <= 3) {
         counter ++;
@@ -28,6 +26,3 @@ function left() {
         document.getElementById("img_Disp").src = imgAr[counter];
     }
 }
-
-
-
