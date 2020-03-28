@@ -1,9 +1,16 @@
 const bodyCont = document.getElementById("container");
 
 storeXY.onclick = function() {
+    console.log(style);
+    colWid = [];
+    bodyCont.textContent = [];
+    xDim = [];
+    yDim = [];
 // store user input for grid dimensions
     var xDim = document.getElementById("col-Num").value;
     var yDim = document.getElementById("row-Num").value;
+    console.log("xDim: " + xDim);
+    console.log("yDim: " + yDim);
 
     // calculate number of cells total
     var gridFull = xDim * yDim;
@@ -17,10 +24,11 @@ storeXY.onclick = function() {
     var rowParents = [];
 
     // starting string for the setAttribute DOM
+    // colString has to be here for the next for loop
     var colString = "margin: 0; padding: 0; border: 0; display: grid; height: 500px; width: 500px; grid-template-columns: ";
 
-        // create set of x equal columns
-        for(i=0; i < xDim; i++) {
+        // concatenate colString with xDim number of columns
+        for(i=0; i < yDim; i++) {
             colString += colWid.toString() + "% ";
             rowParents[i] = document.createElement("div");
             rowParents[i].id = "div" + [i];
@@ -34,10 +42,13 @@ storeXY.onclick = function() {
             rowDiv[i].id = "rowdy" + [i];
         }
 
+        console.log("rowDiv: ");
+        console.log(rowDiv);
+
         // chunk rowDiv into "xDim" amount of columns
         var chunk_Ar = [];
         var current = [];
-        var j = 0;
+        j = 0;
         function chunk(one, two) {
             for (i=0; i <= gridFull; i++) {
                 if (current.length < two) {
@@ -45,28 +56,36 @@ storeXY.onclick = function() {
                 }
                 else {
                     chunk_Ar[j] = current;
+                    console.log("current: ");
+                    console.log(current);
                     current = [];
-                    j++;
                     i--;
+                    j++;
                 }
             }
         }
 
-        // array called divy holds xDim amount of div[0-xDim]
-        var divy = [];
-        for(i=0; i < xDim; i++) {
-            divy[i] = document.getElementById("div" + [i]);
-        }
-        
         // call function on our variables
         chunk(rowDiv, xDim);
 
+        console.log("chunk: ");
+        console.log(chunk_Ar);
+
+        // array called divy holds xDim amount of div[0-xDim]
+        var divy = [];
+        for(i=0; i < yDim; i++) {
+            divy[i] = document.getElementById("div" + [i]);
+        }
+
         // append cells to columns
-        for(i=0; i < xDim; i++) {
+
+        for(i=0; i < yDim; i++) {
             for(j=0; j < xDim; j++){
                 divy[i].appendChild(chunk_Ar[i][j]);
             }            
         }
+        console.log("divy: ");
+        console.log(divy);
 
     // set .container column widths equal to each other and to xDim
     bodyCont.setAttribute("style", colString);
@@ -74,6 +93,7 @@ storeXY.onclick = function() {
     // give each cell a random background color
     var pool = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'];
     var myHex = '#';
+    console.log(gridFull);
     for(i=0; i < gridFull; i++) {
 
         for (j=0; j<6; j++){
@@ -87,5 +107,4 @@ storeXY.onclick = function() {
         console.log(myHex);
         myHex = "#";
     }
-    console.log(style);
 }
