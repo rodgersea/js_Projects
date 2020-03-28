@@ -1,6 +1,7 @@
 const bodyCont = document.getElementById("container");
 
 storeXY.onclick = function() {
+    // clear out all variables for clicking button again without refresh
     console.log(style);
     colWid = [];
     bodyCont.textContent = [];
@@ -14,8 +15,6 @@ storeXY.onclick = function() {
 
     // calculate number of cells total
     var gridFull = xDim * yDim;
-    // create empty grid
-    var gridAr = [];
 
     // calculate % width of each column
     var colWid = (100 / xDim).toFixed(2);
