@@ -1,5 +1,8 @@
 
-// the four variables below are the four banks of characters to pull from
+// password script
+// activated by single button on index.html
+
+// the four variables below are the four character types to pull from
 var lower = "abcdefghijklmnopqrstuvwxyz"
 lower = lower.split("");
 var upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -9,18 +12,13 @@ numeric = numeric.split("");
 var special = "!#$%&'()*+,-./:;<=>?@[\]^_`{|}~"
 special = special.split("");
 
-// array of four pools
-var poolSet = [lower, upper, numeric, special];
-
 // ask the user which of the four character types to pool from
 // concatenate variable called choose with the boolean values
 generate.onclick = function() {
 
-    // choose will hold the boolean values one to four
-    var choose = [];
-
     // user selects four string types
     // concat booleans
+    var choose = [];
     var one = confirm("include lowercase?");
     choose = choose.concat(one);
     var two = confirm("include uppercase?");
@@ -30,8 +28,22 @@ generate.onclick = function() {
     var four = confirm("include special?");
     choose = choose.concat(four);
 
-    // user selects char length if select cancel: terminate
-    // if selcect num out of range, repeatedly scold until cancel or proper value
+    // check to see if user selected 0 of the 4 pool choices
+    var check = 0;
+    for (i=0; i < 4; i++) {
+        if (choose[i] === true) {
+            check++;
+        }
+    }
+
+    // if 0, alert "generate new with at least one selection"
+    if (check == 0) {
+        alert("generate password requires at least one selection");
+        return;
+    }    
+
+    // select char length. if cancel, return
+    // if selcect num out of range, scold until cancel or proper value
     var five = prompt("how long? 8-128 characters");
     while ((five < 8) || (five > 128)) {
         if (five === null) {
@@ -42,7 +54,10 @@ generate.onclick = function() {
         }
     }
 
-    // concat array for password pool
+    // array of four pools for loop below
+    var poolSet = [lower, upper, numeric, special];
+
+    // concat empty array for password pool
     var pool = [];
     for (i=0; i < choose.length; i++) {
         if (choose[i] == true) {
@@ -50,15 +65,13 @@ generate.onclick = function() {
         }
     }
 
-    // make empty password array to hold final password
+    // create passwerd, loop through pool (passwerd) length of times
     var passwerd = "";
-
-    // create passwerd, loop through pool passwerd length of times
     for (i=0; i < five; i++) {
         a = Math.floor(Math.random() * pool.length);
         passwerd += pool[a];
     }
     
-    // replace div w/id password with passw"e"rd :P
+    // replace "password" div with passw"e"rd :P
     document.getElementById("password").innerHTML = passwerd;
 }
