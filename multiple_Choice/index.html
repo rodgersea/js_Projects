@@ -9,7 +9,6 @@
 <body>
     <!-- permanent div -->
     <div id="header">
-        <div id="view-hs">View Highscores</div>
         <div id="timer">timer</div>
     </div>
 
@@ -20,10 +19,20 @@
             timer decreases by 1 each second. answer 5 questions, save score with initials
         </div>
         <button id="start-game">start game</button>
+        <button id="clear-score">clear scores</button>
     </div>
 
     <!-- introduce div contents onclick -->
     <div id="card-div"></div>
+
+    <div class="puntos">
+        <form id="score-form">
+            <label for="init-score">enter your initials and save score: </label>
+            <input type="text" id="init-score">
+        </form><br>
+        <button id="load-start">return to start</button>
+        <ul id="score-list"></uls>
+    </div>    
 
     <script src="mult.js"></script>
 </body>

@@ -1,3 +1,12 @@
-button {
+.btn1 {
     display: block;
+}
+
+#score-form {
+    display: none;
+}
+
+#load-start,
+#timer {
+    display: none;
 }
