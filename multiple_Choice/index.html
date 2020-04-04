@@ -16,9 +16,8 @@
 
             <!-- temporary div -->
             <div id="title">
-                <h1>coding multiple choice</h1>
-                <div>this is a coding multiple choice game, timer starts at 100, each correct answer adds 10, each incorrect minus 20, <br>
-                    timer decreases by 1 each second. answer 5 questions, save score with initials
+                <h1 id="hone">coding multiple choice</h1>
+                <div id="expl">this is a coding multiple choice game<br>timer starts at 100<br>each correct answer adds 10<br>each incorrect minus 20<br>timer decreases by 1 each second<br>answer 5 questions<br>save score with initials
                 </div><br>
                 <button id="start-game">start game</button>
                 <button id="clear-score">clear scores</button>
@@ -30,13 +29,15 @@
 
         <!-- score card -->
         <div class="puntos">
-            <form id="score-form">
-                <label for="init-score">enter your initials and save score: </label>
-                <input type="text" id="init-score">
-            </form><br>
+            <div class="brake">
+                <form id="score-form">
+                    <label for="init-score">enter your initials and save score: </label>
+                    <input type="text" id="init-score">
+                </form>
+            </div>
+            <button id="load-start">return to start</button>
             <div class="container">
                 <div>
-                    <button id="load-start">return to start</button><br>
                     <ul id="score-list"></ul>
                 </div>
                 <div id="one-sub">

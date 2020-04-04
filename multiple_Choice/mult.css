@@ -54,8 +54,9 @@ button {
     width: 50%;
 }
 
-h1 {
+#hone {
     color: #EF8354;
+    font-size: 50px;
 }
 
 #divy {
@@ -84,4 +85,30 @@ input {
     height: 30px;
     background-color: #2D3142;
     color: #FFFFFF;
+}
+
+@media only screen and (max-width: 808px) {
+    button {
+        width: max-content;
+    }
+    #divy {
+        width: 90%;
+        font-size: 30px;
+    }
+    #expl {
+        width: 260px;
+    }
+    .btn1 {
+        width: 90%;
+        font-size: 20px;
+        height: auto;
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    #title {
+        width: 90%;
+    }
+    #hone {
+        font-size: 25px;
+    }
 }

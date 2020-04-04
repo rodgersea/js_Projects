@@ -79,6 +79,10 @@ var init_Input = document.querySelector("#init-score")
 var punt = document.querySelector(".puntos");
 // allow one submission display spidey meme
 var get_One = document.querySelector("#get-one")
+// add break
+var brake_Class = document.querySelector(".brake");
+// for adding breaks
+var brake = document.createElement("BR");
 
 // ONCLICK FUNCTIONS
 // ________________________________________________________________________________________________________________
@@ -203,6 +207,7 @@ function ending() {
     final_Score.id = "final-score";
     final_Score.textContent = "final score: " + timer_Value;
     card_Div.appendChild(final_Score);
+    brake_Class.appendChild(brake);
 }
 
 // SAVE FINAL SCORE STRING TO LOCAL STORAGE, RENDER EXISTING SCORES ON PAGE LOAD
@@ -240,7 +245,7 @@ function storeScores() {
     localStorage.setItem("puntos", JSON.stringify(puntos));
 }
 
-// ADDS SCORE AND INITIALS TO LIST ONLY ONCE
+// ADDS SCORE AND INITIALS TO LIST ONLY ONCE, SCOLD WITH CHEEKY MEME
 // ________________________________________________________________________________________________________________
 
 // on input submit

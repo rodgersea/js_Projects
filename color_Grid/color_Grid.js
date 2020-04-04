@@ -7,7 +7,8 @@ storeXY.onclick = function() {
     bodyCont.textContent = [];
     xDim = [];
     yDim = [];
-// store user input for grid dimensions
+
+    // store user input for grid dimensions
     var xDim = document.getElementById("col-Num").value;
     var yDim = document.getElementById("row-Num").value;
     console.log("xDim: " + xDim);
@@ -40,7 +41,6 @@ storeXY.onclick = function() {
             rowDiv[i] = document.createElement("div");
             rowDiv[i].id = "rowdy" + [i];
         }
-
         console.log("rowDiv: ");
         console.log(rowDiv);
 
@@ -52,8 +52,7 @@ storeXY.onclick = function() {
             for (i=0; i <= gridFull; i++) {
                 if (current.length < two) {
                     current = current.concat(one[i]);
-                }
-                else {
+                } else {
                     chunk_Ar[j] = current;
                     console.log("current: ");
                     console.log(current);
@@ -63,7 +62,6 @@ storeXY.onclick = function() {
                 }
             }
         }
-
         // call function on our variables
         chunk(rowDiv, xDim);
 
@@ -77,7 +75,6 @@ storeXY.onclick = function() {
         }
 
         // append cells to columns
-
         for(i=0; i < yDim; i++) {
             for(j=0; j < xDim; j++){
                 divy[i].appendChild(chunk_Ar[i][j]);
