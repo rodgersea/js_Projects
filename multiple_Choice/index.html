@@ -7,31 +7,43 @@
     <title>Document</title>
 </head>
 <body>
-    <!-- permanent div -->
-    <div id="header">
-        <div id="timer">timer</div>
-    </div>
+    <div class="main-cont">
+        <div class="body-cont">
+            <!-- permanent div -->
+            <div id="header">
+                <div id="timer">timer</div>
+            </div>
 
-    <!-- temporary div -->
-    <div id="title">
-        <h1>coding multiple choice</h1>
-        <div>this is a coding multiple choice game, timer starts at 100, each correct answer adds 10, each incorrect minus 20, 
-            timer decreases by 1 each second. answer 5 questions, save score with initials
+            <!-- temporary div -->
+            <div id="title">
+                <h1>coding multiple choice</h1>
+                <div>this is a coding multiple choice game, timer starts at 100, each correct answer adds 10, each incorrect minus 20, <br>
+                    timer decreases by 1 each second. answer 5 questions, save score with initials
+                </div><br>
+                <button id="start-game">start game</button>
+                <button id="clear-score">clear scores</button>
+            </div>
         </div>
-        <button id="start-game">start game</button>
-        <button id="clear-score">clear scores</button>
-    </div>
 
-    <!-- introduce div contents onclick -->
-    <div id="card-div"></div>
+        <!-- introduce div contents onclick -->
+        <div id="card-div"></div>
 
-    <div class="puntos">
-        <form id="score-form">
-            <label for="init-score">enter your initials and save score: </label>
-            <input type="text" id="init-score">
-        </form><br>
-        <button id="load-start">return to start</button>
-        <ul id="score-list"></uls>
+        <!-- score card -->
+        <div class="puntos">
+            <form id="score-form">
+                <label for="init-score">enter your initials and save score: </label>
+                <input type="text" id="init-score">
+            </form><br>
+            <div class="container">
+                <div>
+                    <button id="load-start">return to start</button><br>
+                    <ul id="score-list"></ul>
+                </div>
+                <div id="one-sub">
+                    <img id="get-one">
+                </div>
+            </div>
+        </div>  
     </div>    
 
     <script src="mult.js"></script>

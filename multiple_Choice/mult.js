@@ -5,44 +5,44 @@
 // correct answers in position [5]
 var answers = [];
 answers[0] = [
-    "q0",
-    "zero",
-    "one",
-    "two",
-    "three",
-    "zero"
+    "Inside which HTML element do we put the JavaScript?",
+    "<javascript>",
+    "<scripting>",
+    "<script>",
+    "<js>",
+    "<script>"
 ];
 answers[1] = [
-    "q1",
-    "zero",
-    "one",
-    "two",
-    "three",
-    "zero"
+    "How does a for loop start?",
+    "for (i=0; i < 5; i++)",
+    "for (i < 5; i++)",
+    "for i = 1 to 5",
+    "for (i=0, i < 5)",
+    "for (i=0; i < 5; i++)"
 ];
 answers[2] = [
-    "q2",
-    "zero",
-    "one",
-    "two",
-    "three",
-    "zero"
+    "Where is the correct place to insert a JavaScript?",
+    "The <body> section",
+    "The <head> section",
+    "The <footer> section",
+    "Both the <head> section and the <body> section are correct",
+    "Both the <head> section and the <body> section are correct"
 ];
 answers[3] = [
-    "q3",
-    "zero",
-    "one",
-    "two",
-    "three",
-    "zero"
+    "How do you write \"Hello World\" in an alert box?",
+    "alert(\"Hello World\");",
+    "alertBox(\"Hello World\");",
+    "msgBox(\"Hello World\");",
+    "msg(\"Hello World\");",
+    "alert(\"Hello World\");"
 ];
 answers[4] = [
-    "q4",
-    "zero",
-    "one",
-    "two",
-    "three",
-    "zero"
+    "How do you call a function named \"myFunction\"?",
+    "call myFunction()",
+    "call function myFunction()",
+    "myFunction()",
+    "function = myFunction()",
+    "myFunction()"
 ];
 
 // VARIABLE LIST
@@ -52,6 +52,7 @@ answers[4] = [
 var choice = "";
 var card_Num = 0;
 var score = 0;
+var score_Submit = 0;
 // starting value for final score
 var timer_Value = 100;
 // start game button
@@ -76,6 +77,8 @@ var score_Form = document.querySelector("#score-form");
 var init_Input = document.querySelector("#init-score")
 // puntos node
 var punt = document.querySelector(".puntos");
+// allow one submission display spidey meme
+var get_One = document.querySelector("#get-one")
 
 // ONCLICK FUNCTIONS
 // ________________________________________________________________________________________________________________
@@ -88,6 +91,7 @@ start.onclick = function() {
     showCurrentCard();
     timer.textContent = "elapsed time: " + timer_Value;
     setTime();
+    score_Submit = 0;
 }
 // button clears local storage
 clear_Scores.onclick = function() {
@@ -100,29 +104,6 @@ load_Start.onclick = function() {
     location.reload();
     return false;
 }
-// sees if button content matches answer key
-card_Div.addEventListener("click", function(event) {
-    var choice = event.target.textContent;
-    // increments score if correct, decrements in incorrect
-    if (choice == answers[card_Num][5]) {
-        score++;
-        timer_Value += 10;
-    } else {
-        timer_Value -= 20;
-    }
-    // increments card counter after each answer
-    if (card_Num < answers.length) {
-        card_Num++;
-    } 
-    // initialize ending screen after last card
-    if (card_Num == answers.length) {
-        ending();
-    }
-    // load next card if not at last question
-    if (card_Num < (answers.length)) {
-        showCurrentCard();
-    }
-})
 
 // QUIZ TIMER
 // ________________________________________________________________________________________________________________
@@ -130,7 +111,10 @@ card_Div.addEventListener("click", function(event) {
 // starts timer when user starts quiz
 function setTime() {
     var timerInterval = setInterval(function() {
-        timer_Value--;
+        // prevent timer_value from going negative
+        if (timer_Value > 0) {
+            timer_Value--;
+        }
         timer.textContent = "elapsed time: " + timer_Value;
         if (card_Num == (answers.length)) {
             clearInterval(timerInterval);
@@ -144,6 +128,7 @@ function setTime() {
 
 // display current set of questions incrememnts on user selection
 function showCurrentCard() {
+    var button_List = [];
     // clears card content from previous question
     while (card_Div.firstChild) {
         card_Div.removeChild(card_Div.lastChild);
@@ -154,6 +139,7 @@ function showCurrentCard() {
         // create div for question
         if (i == 0) {
             boo[i] = document.createElement("div");
+            boo[i].id = "divy";
             boo[i].textContent = answers[card_Num][i];
             card_Div.appendChild(boo[i]);
         // create buttons for answers
@@ -164,6 +150,39 @@ function showCurrentCard() {
             card_Div.appendChild(boo[i]);
         }
     }    
+
+// ONCLICK EVENT NESTED IN SHOWCURRENTCARD FUNCTION
+// ________________________________________________________________________________________________________________
+
+    // FOR EACH ANSWER BUTTON, CREATE ONCLICK EVENT TO CHECK IF CORRECT AND LOAD NEXT CARD
+    button_List = document.querySelectorAll(".btn1");
+    console.log("167 btn list: ");
+    console.log(button_List);
+    for (i=0; i < button_List.length; i++) {
+        button_List[i].addEventListener("click", function() {
+            var choice = event.target.textContent;
+            // increments score if correct, decrements in incorrect
+            // prevent timer_value from going negative
+            if (choice == answers[card_Num][5]) {
+                score++;
+                timer_Value += 10;
+            } else if (timer_Value > 19) {
+                timer_Value -= 20;
+            } else {
+                timer_Value = 0;
+            }
+            if (card_Num < answers.length) {
+                card_Num++;
+            } 
+            // initialize ending screen after last card
+            if (card_Num == answers.length) {
+                ending();
+            }
+            if (card_Num < (answers.length)) {
+                showCurrentCard();
+            }
+        })
+    }
 }
 
 // DISPLAY FINAL SCORE AND LOGGED SCORES
@@ -181,6 +200,7 @@ function ending() {
     card_Div.textContent = "";
     // create and display final score
     var final_Score = document.createElement("div");
+    final_Score.id = "final-score";
     final_Score.textContent = "final score: " + timer_Value;
     card_Div.appendChild(final_Score);
 }
@@ -219,20 +239,33 @@ function storeScores() {
     // stringify and set puntos key in localStorage to puntos array
     localStorage.setItem("puntos", JSON.stringify(puntos));
 }
+
+// ADDS SCORE AND INITIALS TO LIST ONLY ONCE
+// ________________________________________________________________________________________________________________
+
 // on input submit
 score_Form.addEventListener("submit", function(event) {
-    event.preventDefault();
-    var pHold = init_Input.value + ": " + (timer_Value + 1);
+    if (score_Submit == 0) {
+        event.preventDefault();
+        var pHold = init_Input.value + ": " + (timer_Value + 1);
+    
+        // return if init_Score is empty
+        if (pHold === "") {
+            return;
+        }
+        // add new pHold to puntos array, clear the input
+        puntos.push(pHold);
+        init_Input.value = "";
+    
+        // store updated puntos in localStorage, re-render list of scores
+        storeScores();
+        renderScores();
 
-    // return if init_Score is empty
-    if (pHold === "") {
-        return;
+        // add one to score_Submit to prevent multiple score submissions
+        score_Submit++;
+        console.log("scoresub: " + score_Submit);
+    } else {
+        event.preventDefault();
+        get_One.src = "only_One.jpeg";
     }
-    // add new pHold to puntos array, clear the input
-    puntos.push(pHold);
-    init_Input.value = "";
-
-    // store updated puntos in localStorage, re-render list of scores
-    storeScores();
-    renderScores();
 })
